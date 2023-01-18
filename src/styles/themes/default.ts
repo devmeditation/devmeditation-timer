@@ -18,4 +18,14 @@ export const defaultTheme = {
   'red-700': '#7A1921',
 
   'yellow-500': '#FBA94C',
+
+  'fire-100': '#ff8566',
+  'fire-200': '#ff704d',
+  'fire-300': '#ff5c33',
+  'fire-400': '#ff471a',
+  'fire-500': '#ff3300',
+  'fire-600': '#e62e00',
+  'fire-700': '#cc2900',
+  'fire-800': '#b32400',
+  'fire-900': '#991f00',
 }
