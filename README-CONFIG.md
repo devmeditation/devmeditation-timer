@@ -73,6 +73,12 @@ npx eslint src --ext .ts,.tsx --fix
 ### INSTALL react-router-dom
 ```
 npm i react-router-dom
+npm install @hookform/resolvers
+```
+
+### INSTALL ZOD
+```
+npm i zod
 ```
 
 - para criar uma pagina de layout, devemos criar um componente  react e dentro dele colocar  **<Outlet />** que vem do *react-router-dom* e serve para add todo o conteudo da pagina de layout na paginar filhas

@@ -14,6 +14,8 @@ Author: Dev Meditation
 - [Styled Components](https://styled-components.com)
 - [Eslint](https://eslint.org/)
 - [react-route-dom](https://reactrouter.com/)
+- [React Hook Form]()
+- [Zod](https://zod.dev/)
 
 
 ### LINKS
