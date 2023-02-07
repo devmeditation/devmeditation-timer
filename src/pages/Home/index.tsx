@@ -12,6 +12,7 @@ import {
   TaskInput,
   TwoPointsContdown,
 } from './home.styles'
+import { useState } from 'react'
 
 const newCycleFormValidationSchema = zod.object({
   task: zod.string().min(1, 'Informe no nome da matéria ou assunto'),
@@ -24,7 +25,16 @@ const newCycleFormValidationSchema = zod.object({
 // criando tipagem automatica com o zod
 type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
 
+interface Cycle {
+  id: string
+  task: string
+  muinutesAmount: number
+}
+
 export function Home() {
+  const [cycle, setCycle] = useState<Cycle[]>([])
+  const [activeCycleId, setActiveCycleId] = useState<string | null>(null)
+
   const { register, handleSubmit, watch, reset } = useForm<NewCycleFormData>({
     resolver: zodResolver(newCycleFormValidationSchema),
     defaultValues: {
@@ -34,12 +44,24 @@ export function Home() {
   })
 
   function handleCreateNewCycle(data: NewCycleFormData) {
-    console.log(data)
+    const id = String(new Date().getTime())
+    const newCycle: Cycle = {
+      id,
+      task: data.task,
+      muinutesAmount: data.minutesAmount,
+    }
+
+    setCycle((preState) => [...preState, newCycle])
+    setActiveCycleId(id)
+
     reset()
 
     // mensagens de error
     // console.log(formState.errors)
   }
+
+  const activeCycle = cycle.find((cycle) => cycle.id === activeCycleId)
+  console.log(activeCycle)
 
   const task = watch('task')
   const isButtonSubmitDisabled = !task
