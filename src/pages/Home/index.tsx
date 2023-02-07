@@ -12,7 +12,8 @@ import {
   TaskInput,
   TwoPointsContdown,
 } from './home.styles'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { differenceInSeconds } from 'date-fns'
 
 const newCycleFormValidationSchema = zod.object({
   task: zod.string().min(1, 'Informe no nome da matéria ou assunto'),
@@ -29,6 +30,7 @@ interface Cycle {
   id: string
   task: string
   muinutesAmount: number
+  cycleStartDate: Date
 }
 
 export function Home() {
@@ -44,23 +46,6 @@ export function Home() {
     },
   })
 
-  function handleCreateNewCycle(data: NewCycleFormData) {
-    const id = String(new Date().getTime())
-    const newCycle: Cycle = {
-      id,
-      task: data.task,
-      muinutesAmount: data.minutesAmount,
-    }
-
-    setCycle((preState) => [...preState, newCycle])
-    setActiveCycleId(id)
-
-    reset()
-
-    // mensagens de error
-    // console.log(formState.errors)
-  }
-
   const activeCycle = cycle.find((cycle) => cycle.id === activeCycleId)
 
   const totalSeconds = activeCycle ? activeCycle.muinutesAmount * 60 : 0
@@ -70,6 +55,48 @@ export function Home() {
   const secondsAmount = currentSeconds % 60
   const minutes = String(minutesAmount).padStart(2, '0')
   const secounds = String(secondsAmount).padStart(2, '0')
+
+  useEffect(() => {
+    if (activeCycle) {
+      // atualizando o titulo da janela no navegador
+      document.title = `${minutes}:${secounds}`
+    }
+  }, [minutes, secounds, activeCycle])
+
+  useEffect(() => {
+    let interval: number
+
+    if (activeCycle) {
+      interval = setInterval(() => {
+        setAmountSecondsPassed(
+          differenceInSeconds(new Date(), activeCycle.cycleStartDate),
+        )
+      }, 1000)
+    }
+
+    return () => {
+      clearInterval(interval)
+    }
+  }, [activeCycle])
+
+  function handleCreateNewCycle(data: NewCycleFormData) {
+    const id = String(new Date().getTime())
+    const newCycle: Cycle = {
+      id,
+      task: data.task,
+      muinutesAmount: data.minutesAmount,
+      cycleStartDate: new Date(),
+    }
+
+    setCycle((preState) => [...preState, newCycle])
+    setActiveCycleId(id)
+    setAmountSecondsPassed(0)
+
+    reset()
+
+    // mensagens de error
+    // console.log(formState.errors)
+  }
 
   const task = watch('task')
   const isButtonSubmitDisabled = !task
@@ -109,13 +136,11 @@ export function Home() {
         </FormContainer>
 
         <CountdownContainer>
-          {/* <span>0</span> */}
           <span>{minutes}</span>
           <TwoPointsContdown>
             <span></span>
             <span></span>
           </TwoPointsContdown>
-          {/* <span>0</span> */}
           <span>{secounds}</span>
         </CountdownContainer>
 
