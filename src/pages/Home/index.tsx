@@ -21,10 +21,18 @@ const newCycleFormValidationSchema = zod.object({
     .max(50, 'O ciclo de estudos precisa ser de no mánimo 50 minutos.'),
 })
 
+// criando tipagem automatica com o zod
+type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
+
 export function Home() {
-  const { register, handleSubmit, watch, formState } = useForm({
-    resolver: zodResolver(newCycleFormValidationSchema),
-  })
+  const { register, handleSubmit, watch, formState } =
+    useForm<NewCycleFormData>({
+      resolver: zodResolver(newCycleFormValidationSchema),
+      defaultValues: {
+        task: '',
+        minutesAmount: 0,
+      },
+    })
 
   function handleCreateNewCycle(data) {}
 
