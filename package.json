@@ -1,7 +1,10 @@
 {
-  "name": "devmeditation-timer",
+  "name": "study-time",
   "private": true,
   "version": "0.0.0",
+  "author": {
+    "name": "Dev Meditation"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",

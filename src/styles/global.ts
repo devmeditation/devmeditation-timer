@@ -9,13 +9,14 @@ export const GlobalStyle = createGlobalStyle`
 
   :focus {
     outline: 0;
-    box-shadow: 3px 0 5px 0 ${(props) => props.theme['fire-500']};
-    border-radius: 4px;
+    /* box-shadow: 3px 0 5px 0 ${(props) => props.theme['fire-500']};
+    border-radius: 4px; */
   }
   
   body {
     background-color: ${(props) => props.theme['gray-900']};
     color: ${(props) => props.theme['gray-300']};
+    -webkit-font-smoothing: antialiased;
   }
 
   border-style, input-security, textarea, button {

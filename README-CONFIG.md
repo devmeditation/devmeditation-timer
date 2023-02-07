@@ -79,6 +79,7 @@ npm i react-router-dom
 
 ###
 - [Styled Components](https://styled-components.com)
-- [Eslint]()
-- [react-route-dom]()
+- [Eslint](https://eslint.org/)
+- [react-route-dom](https://reactrouter.com/)
+
 

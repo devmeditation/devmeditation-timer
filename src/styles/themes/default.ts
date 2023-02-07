@@ -1,5 +1,6 @@
 export const defaultTheme = {
   white: '#FFF',
+  black: '#000',
 
   'gray-100': '#E1E1E6',
   'gray-300': '#C4C4CC',
@@ -19,13 +20,33 @@ export const defaultTheme = {
 
   'yellow-500': '#FBA94C',
 
-  'fire-100': '#ff8566',
-  'fire-200': '#ff704d',
-  'fire-300': '#ff5c33',
-  'fire-400': '#ff471a',
+  'fire-100': '#ffd6cc',
+  'fire-200': '#ffad99',
+  'fire-300': '#ff8566',
+  'fire-400': '#ff5c33',
   'fire-500': '#ff3300',
-  'fire-600': '#e62e00',
-  'fire-700': '#cc2900',
-  'fire-800': '#b32400',
-  'fire-900': '#991f00',
+  'fire-600': '#cc2900',
+  'fire-700': '#991f00',
+  'fire-800': '#661400',
+  'fire-900': '#330a00',
+
+  'purple-100': '#ffb3ff',
+  'purple-200': '#ff66ff',
+  'purple-300': '#ff1aff',
+  'purple-400': '#cc00cc',
+  'purple-500': '#800080',
+  'purple-600': '#660066',
+  'purple-700': '#4d004d',
+  'purple-800': '#330033',
+  'purple-900': '#1a001a',
+
+  'rose-100': '#ffcce0',
+  'rose-200': '#ff99c2',
+  'rose-300': '#ff66a3',
+  'rose-400': '#ff3385',
+  'rose-500': '#ff0066',
+  'rose-600': '#cc0052',
+  'rose-700': '#99003d',
+  'rose-800': '#660029',
+  'rose-900': '#330014',
 }

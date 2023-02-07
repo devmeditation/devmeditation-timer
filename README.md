@@ -1,12 +1,21 @@
-# Dev Meditation Timer
+# STUDY TIME
 
+![screnn](/public/DevMeditation_Timer.jpg)
+
+## PROJECT DESCRIPTION
+
+Esse projeto foi criado para marcar o tempo de estudo dessa uma turminha pra la de especial :)
 
 Author: Dev Meditation
 
 
 ### STACKS
-- [ReactJS]()
+- [ReactJS](https://reactjs.org/)
 - [Styled Components](https://styled-components.com)
-- [Eslint]()
-- [react-route-dom]()
+- [Eslint](https://eslint.org/)
+- [react-route-dom](https://reactrouter.com/)
 
+
+### LINKS
+
+- [BCL-LAB](https://www.youtube.com/@bcllab)

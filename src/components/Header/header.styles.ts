@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   img {
-    width: 2rem;
+    width: 3rem;
   }
 
   nav {
@@ -21,7 +21,7 @@ export const HeaderContainer = styled.div`
       justify-content: center;
       align-items: center;
 
-      color: ${(props) => props.theme['gray-100']};
+      color: ${(props) => props.theme['gray-500']};
       border-top: 3px solid transparent;
       border-bottom: 3px solid transparent;
 
