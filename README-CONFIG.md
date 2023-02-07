@@ -82,4 +82,23 @@ npm i react-router-dom
 - [Eslint](https://eslint.org/)
 - [react-route-dom](https://reactrouter.com/)
 
+### Para estilizar a barra de rolagem
+```css
+  ::-webkit-scrollbar              { }
+  ::-webkit-scrollbar-button       { }
+  ::-webkit-scrollbar-track        { }
+  ::-webkit-scrollbar-track-piece  { }
+  ::-webkit-scrollbar-thumb        { }
+  ::-webkit-scrollbar-corner       { }
+  ::-webkit-resizer                { }
+```
+
+## React Hook Form
+trabalha com formularios controlled e uncrontrolled
+
+- [React Hook Form](https://react-hook-form.com/)
+
+```
+npm i react-hook-form
+```
 

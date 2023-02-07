@@ -29,13 +29,6 @@ export const GlobalStyle = createGlobalStyle`
     width: 20px;
   }
 
-  ::-webkit-scrollbar              { }
-  ::-webkit-scrollbar-button       { }
-  ::-webkit-scrollbar-track        { }
-  ::-webkit-scrollbar-track-piece  { }
-  ::-webkit-scrollbar-thumb        { }
-  ::-webkit-scrollbar-corner       { }
-  ::-webkit-resizer                { }
   /* Track */
   ::-webkit-scrollbar-track {
     background: ${(props) => props.theme['fire-900']};
