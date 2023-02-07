@@ -19,7 +19,15 @@ export const defaultTheme = {
   'red-500': '#AB222E',
   'red-700': '#7A1921',
 
-  'yellow-500': '#FBA94C',
+  'yellow-100': '#fee7cd',
+  'yellow-200': '#fdcf9b',
+  'yellow-300': '#fcb769',
+  'yellow-400': '#fba037',
+  'yellow-500': '#fa8805',
+  'yellow-600': '#c86d04',
+  'yellow-700': '#965103',
+  'yellow-800': '#643602',
+  'yellow-900': '#321b01',
 
   'fire-100': '#ffd6cc',
   'fire-200': '#ffad99',

@@ -61,6 +61,10 @@ const BaseInput = styled.input`
     border-bottom: 2px solid ${(props) => props.theme['fire-500']};
     border-radius: 4px;
   }
+
+  &:disabled {
+    opacity: 0;
+  }
 `
 
 export const TaskInput = styled(BaseInput)`
@@ -112,7 +116,7 @@ export const TwoPointsContdown = styled.div`
   }
 `
 
-export const StartCountdownButton = styled.button`
+export const BaseCountdownButton = styled.button`
   position: absolute;
   bottom: 0;
   transform: translateY(50%);
@@ -128,6 +132,40 @@ export const StartCountdownButton = styled.button`
   gap: 0.5rem;
   font-weight: bold;
   cursor: pointer;
+
+  &:active {
+    transform: scale(0.98) translateY(50%);
+  }
+`
+
+export const StopCountdownButton = styled(BaseCountdownButton)`
+  background-image: linear-gradient(
+    to bottom,
+    ${(props) => props.theme['yellow-600']},
+    ${(props) => props.theme['yellow-900']}
+  );
+  color: ${(props) => props.theme['gray-100']};
+  box-shadow: 3px 3px 2rem -15px ${(props) => props.theme['yellow-500']};
+
+  &:disabled {
+    background: ${(props) => props.theme['gray-700']};
+    color: ${(props) => props.theme['gray-500']};
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  &:hover:not(:disabled) {
+    background-image: linear-gradient(
+      to bottom,
+      ${(props) => props.theme['yellow-500']},
+      ${(props) => props.theme['yellow-600']},
+      ${(props) => props.theme['yellow-500']}
+    );
+    box-shadow: 3px 3px 2rem -10px ${(props) => props.theme.black};
+  }
+`
+
+export const StartCountdownButton = styled(BaseCountdownButton)`
   background-image: linear-gradient(
     to bottom,
     ${(props) => props.theme['fire-600']},
@@ -151,9 +189,5 @@ export const StartCountdownButton = styled.button`
       ${(props) => props.theme['fire-500']}
     );
     box-shadow: 3px 3px 2rem -10px ${(props) => props.theme.black};
-  }
-
-  &:active {
-    transform: scale(0.98) translateY(50%);
   }
 `
