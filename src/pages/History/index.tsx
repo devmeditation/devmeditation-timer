@@ -1,4 +1,4 @@
-import { HistoryContainer, HistoryList } from './history.styles'
+import { HistoryContainer, HistoryList, TableContent } from './history.styles'
 
 export function History() {
   return (
@@ -20,19 +20,65 @@ export function History() {
               <td>Matemática</td>
               <td>20 minutos</td>
               <td>Há 2 semanas</td>
-              <td>Concluido</td>
+              <TableContent statusColor="green">
+                <span>Concluido</span>
+              </TableContent>
             </tr>
             <tr>
               <td>Matemática</td>
               <td>20 minutos</td>
               <td>Há 2 semanas</td>
-              <td>Em andamento</td>
+              <TableContent statusColor="yellow">
+                <span>Em andamento</span>
+              </TableContent>
             </tr>
             <tr>
               <td>Matemática</td>
               <td>20 minutos</td>
               <td>Há 2 semanas</td>
-              <td>Concluido</td>
+              <TableContent statusColor="red">
+                <span>Interrompido</span>
+              </TableContent>
+            </tr>
+            <tr>
+              <td>Matemática</td>
+              <td>20 minutos</td>
+              <td>Há 2 semanas</td>
+              <TableContent statusColor="red">
+                <span>Interrompido</span>
+              </TableContent>
+            </tr>
+            <tr>
+              <td>Matemática</td>
+              <td>20 minutos</td>
+              <td>Há 2 semanas</td>
+              <TableContent statusColor="red">
+                <span>Interrompido</span>
+              </TableContent>
+            </tr>
+            <tr>
+              <td>Matemática</td>
+              <td>20 minutos</td>
+              <td>Há 2 semanas</td>
+              <TableContent statusColor="red">
+                <span>Interrompido</span>
+              </TableContent>
+            </tr>
+            <tr>
+              <td>Matemática</td>
+              <td>20 minutos</td>
+              <td>Há 2 semanas</td>
+              <TableContent statusColor="red">
+                <span>Interrompido</span>
+              </TableContent>
+            </tr>
+            <tr>
+              <td>Matemática</td>
+              <td>20 minutos</td>
+              <td>Há 2 semanas</td>
+              <TableContent statusColor="red">
+                <span>Interrompido</span>
+              </TableContent>
             </tr>
           </tbody>
         </table>
