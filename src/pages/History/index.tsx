@@ -1,6 +1,10 @@
+import { useContext } from 'react'
+import { CyclesContext } from '../../contexts/CyclesContext'
 import { HistoryContainer, HistoryList, TableContent } from './history.styles'
 
 export function History() {
+  const { cycles } = useContext(CyclesContext)
+
   return (
     <HistoryContainer>
       <h1>Meu histórico</h1>
@@ -16,70 +20,32 @@ export function History() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Matemática</td>
-              <td>20 minutos</td>
-              <td>Há 2 semanas</td>
-              <TableContent statusColor="green">
-                <span>Concluido</span>
-              </TableContent>
-            </tr>
-            <tr>
-              <td>Matemática</td>
-              <td>20 minutos</td>
-              <td>Há 2 semanas</td>
-              <TableContent statusColor="yellow">
-                <span>Em andamento</span>
-              </TableContent>
-            </tr>
-            <tr>
-              <td>Matemática</td>
-              <td>20 minutos</td>
-              <td>Há 2 semanas</td>
-              <TableContent statusColor="red">
-                <span>Interrompido</span>
-              </TableContent>
-            </tr>
-            <tr>
-              <td>Matemática</td>
-              <td>20 minutos</td>
-              <td>Há 2 semanas</td>
-              <TableContent statusColor="red">
-                <span>Interrompido</span>
-              </TableContent>
-            </tr>
-            <tr>
-              <td>Matemática</td>
-              <td>20 minutos</td>
-              <td>Há 2 semanas</td>
-              <TableContent statusColor="red">
-                <span>Interrompido</span>
-              </TableContent>
-            </tr>
-            <tr>
-              <td>Matemática</td>
-              <td>20 minutos</td>
-              <td>Há 2 semanas</td>
-              <TableContent statusColor="red">
-                <span>Interrompido</span>
-              </TableContent>
-            </tr>
-            <tr>
-              <td>Matemática</td>
-              <td>20 minutos</td>
-              <td>Há 2 semanas</td>
-              <TableContent statusColor="red">
-                <span>Interrompido</span>
-              </TableContent>
-            </tr>
-            <tr>
-              <td>Matemática</td>
-              <td>20 minutos</td>
-              <td>Há 2 semanas</td>
-              <TableContent statusColor="red">
-                <span>Interrompido</span>
-              </TableContent>
-            </tr>
+            {cycles.map((cycle) => {
+              return (
+                <tr key={cycle.id}>
+                  <td>{cycle.task}</td>
+                  <td>{cycle.muinutesAmount} minutos</td>
+                  <td>{cycle.cycleStartDate.toISOString()}</td>
+                  {cycle.finishedDate && (
+                    <TableContent statusColor="green">
+                      <span>Concluido</span>
+                    </TableContent>
+                  )}
+
+                  {cycle.interruptedDate && (
+                    <TableContent statusColor="red">
+                      <span>Interrompido</span>
+                    </TableContent>
+                  )}
+
+                  {!cycle.finishedDate && !cycle.interruptedDate && (
+                    <TableContent statusColor="yellow">
+                      <span>Em andamento</span>
+                    </TableContent>
+                  )}
+                </tr>
+              )
+            })}
           </tbody>
         </table>
       </HistoryList>

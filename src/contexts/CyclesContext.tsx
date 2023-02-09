@@ -15,7 +15,7 @@ interface Cycle {
 }
 
 interface CyclesContextType {
-  cycle: Cycle[]
+  cycles: Cycle[]
   activeCycle: Cycle | undefined
   activeCycleId: string | null
   amountSecondsPassed: number
@@ -33,18 +33,18 @@ interface CyclesContextProviderProps {
 export function CyclesContextProvider({
   children,
 }: CyclesContextProviderProps) {
-  const [cycle, setCycle] = useState<Cycle[]>([])
+  const [cycles, setCycles] = useState<Cycle[]>([])
   const [activeCycleId, setActiveCycleId] = useState<string | null>(null)
   const [amountSecondsPassed, setAmountSecondsPassed] = useState(0)
 
-  const activeCycle = cycle.find((cycle) => cycle.id === activeCycleId)
+  const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId)
 
   function setSecondsPassed(seconds: number) {
     setAmountSecondsPassed(seconds)
   }
 
   function finishedCycle() {
-    const updatedCycle = cycle.map((cycle) => {
+    const updatedCycle = cycles.map((cycle) => {
       if (cycle.id === activeCycleId) {
         return { ...cycle, finishedDate: new Date() }
       } else {
@@ -52,7 +52,7 @@ export function CyclesContextProvider({
       }
     })
 
-    setCycle(updatedCycle)
+    setCycles(updatedCycle)
     setActiveCycleId(null)
   }
 
@@ -65,7 +65,7 @@ export function CyclesContextProvider({
       cycleStartDate: new Date(),
     }
 
-    setCycle((preState) => [...preState, newCycle])
+    setCycles((preState) => [...preState, newCycle])
     setActiveCycleId(id)
     setAmountSecondsPassed(0)
 
@@ -76,7 +76,7 @@ export function CyclesContextProvider({
   }
 
   function interruptCurrentCycle() {
-    const updatedCycle = cycle.map((cycle) => {
+    const updatedCycle = cycles.map((cycle) => {
       if (cycle.id === activeCycleId) {
         return { ...cycle, interruptedDate: new Date() }
       } else {
@@ -84,7 +84,7 @@ export function CyclesContextProvider({
       }
     })
 
-    setCycle(updatedCycle)
+    setCycles(updatedCycle)
 
     setActiveCycleId(null)
   }
@@ -92,7 +92,7 @@ export function CyclesContextProvider({
   return (
     <CyclesContext.Provider
       value={{
-        cycle,
+        cycles,
         activeCycle,
         activeCycleId,
         finishedCycle,
