@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const HistoryContainer = styled.section`
-  padding: 3.5rem;
+  padding: 3.5rem 1rem;
   /* flex: 1; */
   display: flex;
   flex-direction: column;
@@ -64,7 +64,7 @@ export const HistoryList = styled.div`
 
       &:first-child {
         padding-left: 1rem;
-        width: 50%;
+        width: 40%;
       }
       &:last-child {
         border-bottom: 0.5rem solid ${(props) => props.theme['fire-100']};
@@ -86,7 +86,7 @@ interface StatusProps {
 
 export const TableContent = styled.td<StatusProps>`
   padding: 0.75rem;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: bold;
   line-height: 1.6;
   opacity: 0.9;
@@ -102,9 +102,11 @@ export const TableContent = styled.td<StatusProps>`
 
   &:first-child {
     padding-left: 1rem;
-    width: 50%;
+    width: 40%;
   }
+
   &:last-child {
+    width: 20%;
     /* border-bottom: 0.5rem solid ${(props) => props.theme['fire-100']}; */
     border-bottom: 0.3rem solid
       ${(props) => props.theme[STATUS_COLORS[props.statusColor]]} !important;
@@ -114,11 +116,10 @@ export const TableContent = styled.td<StatusProps>`
   span {
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: flex-end; */
     gap: 0.5rem;
 
-    &::before,
-    &::after {
+    &::before {
       content: '';
       width: 0.5rem;
       height: 0.5rem;
