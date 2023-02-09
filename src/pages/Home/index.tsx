@@ -20,7 +20,7 @@ const newCycleFormValidationSchema = zod.object({
   task: zod.string().min(1, 'Informe no nome da matéria ou assunto'),
   minutesAmount: zod
     .number()
-    .min(5, 'O ciclo de estudos precisa ser de no mínimo 5 minutos.')
+    .min(1, 'O ciclo de estudos precisa ser de no mínimo 5 minutos.')
     .max(50, 'O ciclo de estudos precisa ser de no mánimo 50 minutos.'),
 })
 
@@ -33,6 +33,7 @@ interface Cycle {
   muinutesAmount: number
   cycleStartDate: Date
   interruptedDate?: Date
+  finishedDate?: Date
 }
 
 export function Home() {
@@ -70,16 +71,25 @@ export function Home() {
 
     if (activeCycle) {
       interval = setInterval(() => {
-        setAmountSecondsPassed(
-          differenceInSeconds(new Date(), activeCycle.cycleStartDate),
+        const secondsDifference = differenceInSeconds(
+          new Date(),
+          activeCycle.cycleStartDate,
         )
+
+        if (secondsDifference >= totalSeconds) {
+          finishedCycle()
+          clearInterval(interval)
+          setAmountSecondsPassed(totalSeconds)
+        } else {
+          setAmountSecondsPassed(secondsDifference)
+        }
       }, 1000)
     }
 
     return () => {
       clearInterval(interval)
     }
-  }, [activeCycle])
+  }, [activeCycle, totalSeconds])
 
   function handleCreateNewCycle(data: NewCycleFormData) {
     const id = String(new Date().getTime())
@@ -111,6 +121,19 @@ export function Home() {
 
     setCycle(updatedCycle)
 
+    setActiveCycleId(null)
+  }
+
+  function finishedCycle() {
+    const updatedCycle = cycle.map((cycle) => {
+      if (cycle.id === activeCycleId) {
+        return { ...cycle, finishedDate: new Date() }
+      } else {
+        return cycle
+      }
+    })
+
+    setCycle(updatedCycle)
     setActiveCycleId(null)
   }
 
@@ -147,7 +170,7 @@ export function Home() {
             placeholder="00"
             disabled={!!activeCycle}
             step={5}
-            min={5}
+            min={1}
             max={50}
             {...register('minutesAmount', { valueAsNumber: true })}
           />
