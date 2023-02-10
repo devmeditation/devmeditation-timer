@@ -108,3 +108,8 @@ trabalha com formularios controlled e uncrontrolled
 npm i react-hook-form
 ```
 
+## IMMER JS
+- [Immer JS](https://immerjs.github.io/immer/)
+```
+npm i immer
+```

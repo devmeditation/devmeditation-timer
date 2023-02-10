@@ -9,13 +9,14 @@ Esse projeto foi criado para marcar o tempo de estudo dessa uma turminha pra la 
 Author: Dev Meditation
 
 
-### STACKS
+### STACKS AND LIBS
 - [ReactJS](https://reactjs.org/)
 - [Styled Components](https://styled-components.com)
 - [Eslint](https://eslint.org/)
 - [react-route-dom](https://reactrouter.com/)
 - [React Hook Form]()
 - [Zod](https://zod.dev/)
+- [Immer](https://immerjs.github.io/immer/)
 
 
 ### LINKS
