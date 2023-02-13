@@ -43,15 +43,15 @@ export function CyclesContextProvider({
       cycles: [],
       activeCycleId: null,
     },
-    () => {
-      const storeStateAsJSON = localStorage.getItem(
-        '@study-time:cycles-state-1.0.0',
-      )
+    // () => {
+    //   const storeStateAsJSON = localStorage.getItem(
+    //     '@study-time:cycles-state-1.0.0',
+    //   )
 
-      if (storeStateAsJSON) {
-        return JSON.parse(storeStateAsJSON)
-      }
-    },
+    //   if (storeStateAsJSON) {
+    //     return JSON.parse(storeStateAsJSON)
+    //   }
+    // },
   )
 
   const { activeCycleId, cycles } = cyclesState

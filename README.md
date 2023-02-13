@@ -17,8 +17,10 @@ Author: Dev Meditation
 - [React Hook Form]()
 - [Zod](https://zod.dev/)
 - [Immer](https://immerjs.github.io/immer/)
+- [LocalStorage]()
 
 
 ### LINKS
 
+- [Study Time](https://study-time-devmeditation.netlify.app/)
 - [BCL-LAB](https://www.youtube.com/@bcllab)
