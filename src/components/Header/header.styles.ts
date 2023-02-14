@@ -6,6 +6,7 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
 
   img {
+    padding: 0 0.5rem;
     width: 3rem;
   }
 

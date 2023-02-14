@@ -9,8 +9,6 @@ export const GlobalStyle = createGlobalStyle`
 
   :focus {
     outline: 0;
-    /* box-shadow: 3px 0 5px 0 ${(props) => props.theme['fire-500']};
-    border-radius: 4px; */
   }
   
   body {
@@ -38,7 +36,6 @@ export const GlobalStyle = createGlobalStyle`
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    /* background: ${(props) => props.theme['fire-700']}; */
     background-image: linear-gradient(
       to bottom,
       ${(props) => props.theme['fire-700']},
@@ -50,7 +47,6 @@ export const GlobalStyle = createGlobalStyle`
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    /* background: ${(props) => props.theme['fire-800']}; */
     background-image: linear-gradient(
       to left,
       ${(props) => props.theme['fire-900']},
@@ -59,7 +55,6 @@ export const GlobalStyle = createGlobalStyle`
     );
   }
   ::-webkit-scrollbar-corner       { 
-    /* background: ${(props) => props.theme['fire-800']}; */
     border-radius: 0.3rem;
     /* box-shadow: inset 0 0 5px ${(props) => props.theme['fire-100']};  */
   }

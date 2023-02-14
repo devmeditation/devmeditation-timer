@@ -2,11 +2,14 @@ import styled from 'styled-components'
 
 export const FormContainer = styled.div`
   width: 100%;
+  padding: 0.5rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   gap: 0.5rem;
+  flex-wrap: wrap;
 
+  font-size: 1.125rem;
+  font-weight: bold;
   color: ${(props) => props.theme.white};
   background-image: linear-gradient(
     to bottom,
@@ -14,13 +17,22 @@ export const FormContainer = styled.div`
     rgba(140, 1, 1, 0.7),
     ${(props) => props.theme['fire-900']}
   );
+
   border-bottom: 0.5rem solid ${(props) => props.theme.white};
   border-radius: 0.5rem;
 
-  padding: 0 1rem;
-  font-size: 1.5125rem;
-  font-weight: bold;
-  flex-wrap: wrap;
+  span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  @media (min-width: 800px) {
+    padding: 1rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
 `
 
 const BaseInput = styled.input`
@@ -32,11 +44,12 @@ const BaseInput = styled.input`
   font-size: inherit;
   padding: 0 0.5rem;
   color: ${(props) => props.theme.white};
+  border-bottom: 2px solid ${(props) => props.theme['fire-500']};
 
   transition: all 0.3s linear;
 
   &:focus {
-    border-bottom: 2px solid ${(props) => props.theme['fire-500']};
+    background: ${(props) => props.theme['fire-600']};
     border-radius: 4px;
   }
 

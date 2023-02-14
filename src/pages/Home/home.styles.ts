@@ -4,21 +4,34 @@ export const HomeContainer = styled.main`
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin: 0.5rem 0;
+  margin-bottom: 4rem;
 
   form {
+    min-height: 38vh;
     display: flex;
     flex-direction: column;
-    gap: 3.5rem;
+    gap: 1.5rem;
     align-items: center;
 
-    width: 80%;
-    height: 80%;
-    padding: 3rem;
     position: relative;
-    box-shadow: 3px 3px 20rem -15px ${(props) => props.theme['fire-500']};
     border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 3px 3px 10rem -15px ${(props) => props.theme['fire-600']};
+  }
+
+  @media (min-width: 800px) {
+    justify-content: center;
+    align-items: center;
+
+    form {
+      width: 80%;
+      height: 80%;
+      min-height: 65vh;
+      padding: 3rem;
+      gap: 3.5rem;
+      box-shadow: 3px 3px 20rem -15px ${(props) => props.theme['fire-500']};
+    }
   }
 `
 
